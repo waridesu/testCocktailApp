@@ -4,13 +4,18 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'cocktail-db',
     pathMatch: 'full'
   },
+  {
+    path: 'cocktail-db',
+    loadChildren: () => import('./cocktail-db/cocktail-db.module').then(m => m.CocktailDBPageModule)
+  },
+
 ];
 
 @NgModule({
