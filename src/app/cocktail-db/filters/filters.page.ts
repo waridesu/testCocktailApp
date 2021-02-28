@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CocktailApiService} from '../../service/cocktail-api.service';
 
 @Component({
   selector: 'app-filters',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filters.page.scss'],
 })
 export class FiltersPage implements OnInit {
-
-  constructor() { }
-
+  checkbox;
+  constructor(private service: CocktailApiService) { }
   ngOnInit() {
+  }
+  unChecked(id){
+    console.log(id);
+    this.service.unChecked(id);
+  }
+  ionViewDidEnter() {
+    this.checkbox = this.service.checkbox;
   }
 
 }

@@ -15,11 +15,11 @@ export class CocktailDBPage implements OnInit {
 
   ngOnInit() {
   }
+
   ionViewDidEnter() {
     this.cocktailApi.getCocktail('Ordinary Drink').subscribe(d => {
       console.log(d);
       this.drinks = d[`drinks`];
     });
   }
-
 }
