@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { CocktailDBPageRoutingModule } from './cocktail-db-routing.module';
 
 import { CocktailDBPage } from './cocktail-db.page';
+import {CocktailItemPageModule} from './cocktail-item/cocktail-item.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CocktailDBPageRoutingModule
+    CocktailDBPageRoutingModule,
+    CocktailItemPageModule
   ],
   declarations: [CocktailDBPage]
 })

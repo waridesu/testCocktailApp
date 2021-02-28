@@ -1,25 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {CocktailApiService} from '../service/cocktail-api.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cocktail-db',
   templateUrl: './cocktail-db.page.html',
   styleUrls: ['./cocktail-db.page.scss'],
 })
-export class CocktailDBPage implements OnInit {
+export class CocktailDBPage {
   drinks;
+  filters;
 
-  constructor(private cocktailApi: CocktailApiService) {
-    console.log('app component constructor called');
+  constructor(private cocktailApi: CocktailApiService, private router: Router) {
   }
 
-  ngOnInit() {
+  goToFilters() {
+    this.router.navigate(['cocktail-db/filters']);
   }
-
   ionViewDidEnter() {
-    this.cocktailApi.getCocktail('Ordinary Drink').subscribe(d => {
-      console.log(d);
-      this.drinks = d[`drinks`];
-    });
+    this.filters = this.cocktailApi.getCheckbox();
   }
 }

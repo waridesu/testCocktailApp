@@ -7,16 +7,19 @@ import {CocktailApiService} from '../../service/cocktail-api.service';
   styleUrls: ['./filters.page.scss'],
 })
 export class FiltersPage implements OnInit {
-  checkbox;
+  filters;
   constructor(private service: CocktailApiService) { }
   ngOnInit() {
   }
-  unChecked(id){
+  toggleCheckbox(id){
     console.log(id);
-    this.service.unChecked(id);
+    this.service.toggleCheckbox(id);
+  }
+  saveChanges() {
+    this.service.apply();
   }
   ionViewDidEnter() {
-    this.checkbox = this.service.checkbox;
+    this.filters = this.service.copyFilters;
   }
 
 }

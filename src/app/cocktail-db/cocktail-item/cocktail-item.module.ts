@@ -9,12 +9,15 @@ import { CocktailItemPageRoutingModule } from './cocktail-item-routing.module';
 import { CocktailItemPage } from './cocktail-item.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    CocktailItemPageRoutingModule
-  ],
-  declarations: [CocktailItemPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        CocktailItemPageRoutingModule
+    ],
+    exports: [
+        CocktailItemPage
+    ],
+    declarations: [CocktailItemPage]
 })
 export class CocktailItemPageModule {}
